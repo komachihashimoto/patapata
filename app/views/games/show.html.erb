@@ -1,0 +1,7 @@
+<!-- ランキング画面 -->
+<% @ranks.order(time: :asc).each_with_index do |rank, index| %>
+  <p><%= index + 1 %>. <%= rank.nickname %> - <%= rank.time %></p>
+<% end %>
+
+<!-- メニューに戻るボタン -->
+<button id="menu-button2">メニューに戻る</button>
