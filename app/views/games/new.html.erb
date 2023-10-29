@@ -1,0 +1,32 @@
+<!-- プレイ画面 -->
+<div id="game">
+  <label for="inputText">
+    <!-- 入力するべき単語が表示される部分 -->
+    <div id="word-display">
+      <span id="entered" class="maker"></span>
+      <span id="remained"></span>
+    </div>
+
+    <!-- 入力欄 -->
+    <input type="text" class= "text" id="inputText" autofocus>
+  </label>
+
+
+    <!-- ゲーム終了時に表示されるボタン -->
+  <div id="message" class="text-container hidden">
+    <div id = "time" ></div>
+    <div class="button">
+      <%= link_to "もう一度遊ぶ", "#", id: "replayBtn", class: "btn btn-primary" %>
+      <%= link_to "メニューに戻る", "#", id: "menu-button", class: "btn btn-primary" %>
+      <%= link_to "ランキングを保存", "/games/new", method: :get, id: "save-ranking-button", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <!-- 入力フォーム画面 -->
+  <%= form_with model: @rank, local: true do |form| %>
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+    
+    <%= form.submit "送信" %>
+  <% end %>
+</div>
